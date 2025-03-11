@@ -7,8 +7,8 @@ import { initStore } from './shared/store.js';
 // Import pages - this ensures they are registered with the router
 // When adding a new page, just import it here
 import './pages/home/home.js';
-// import './pages/settings/settings.js';
-// import './pages/profile/profile.js';
+import './pages/settings-list/settings-list.js';
+import './pages/new-setting/new-setting.js';
 
 // Initialize the application when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', async () => {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize the router and navigate to the home page
   initRouter();
-  navigateTo('home');
+  navigateTo('new-setting');
   
   // Hide loading indicator when not needed
   const loadingIndicator = document.getElementById('loading-indicator');

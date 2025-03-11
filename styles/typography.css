@@ -1,0 +1,132 @@
+/* typography.css - Typography-related styles for the extension */
+
+/* 1. Base typography */
+body {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+  /* Removed color property, moved to colors.css */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. Headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: var(--spacing-8);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+h1 {
+  font-size: var(--font-size-xl);
+}
+
+h2 {
+  font-size: var(--font-size-lg);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin-bottom: var(--spacing-12);
+}
+
+/* 3. Page title */
+.page-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-24);
+  /* Removed color property, moved to colors.css */
+}
+
+.app-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  /* Removed color property, moved to colors.css */
+}
+
+/* 4. Form elements */
+input, select, textarea, button {
+  font-family: var(--font-family-default);
+  font-size: var(--font-size-md);
+}
+
+input::placeholder, textarea::placeholder {
+  /* Removed color property, moved to colors.css */
+  font-size: var(--font-size-md);
+}
+
+button {
+  font-weight: var(--font-weight-medium);
+}
+
+/* 5. Property styles */
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  /* Removed color property, moved to colors.css */
+}
+
+.tag {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+.badge {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 6. Status indicators */
+.empty-state h3 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-medium);
+  /* Removed color property, moved to colors.css */
+}
+
+.empty-state p {
+  font-size: var(--font-size-sm);
+  /* Removed color property, moved to colors.css */
+}
+
+.error-message {
+  font-size: var(--font-size-sm);
+  /* Removed color property, moved to colors.css */
+}
+
+.success-message {
+  font-size: var(--font-size-sm);
+  /* Removed color property, moved to colors.css */
+}
+
+/* 7. Special components */
+.dropdown-item {
+  font-size: var(--font-size-sm);
+}
+
+.relation-item {
+  font-size: var(--font-size-sm);
+}
+
+.file-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* 8. User interface elements */
+.user-name {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.note-content {
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-normal);
+}
+
+.note-date {
+  font-size: var(--font-size-xs);
+  /* Removed color property, moved to colors.css */
+}

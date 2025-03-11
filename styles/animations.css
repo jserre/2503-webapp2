@@ -1,0 +1,187 @@
+/* animations.css - All animation-related styles for the extension */
+
+/* 1. Keyframe Animations */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-centered {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes success-fade {
+  0% { opacity: 0; background-color: rgba(15, 157, 88, 0.1); }
+  20% { opacity: 1; background-color: rgba(15, 157, 88, 0.1); }
+  80% { opacity: 1; background-color: rgba(15, 157, 88, 0.1); }
+  100% { opacity: 0; background-color: transparent; }
+}
+
+@keyframes error-fade {
+  0% { opacity: 0; background-color: rgba(235, 87, 87, 0.1); }
+  20% { opacity: 1; background-color: rgba(235, 87, 87, 0.1); }
+  80% { opacity: 1; background-color: rgba(235, 87, 87, 0.1); }
+  100% { opacity: 0; background-color: transparent; }
+}
+
+@keyframes success-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(15, 157, 88, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(15, 157, 88, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(15, 157, 88, 0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 2. Animation Utility Classes */
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
+}
+
+.spin-animation {
+  animation: spin 0.8s linear infinite;
+}
+
+.success-fade-animation {
+  animation: success-fade 2s ease-in-out forwards;
+}
+
+.error-fade-animation {
+  animation: error-fade 2s ease-in-out forwards;
+}
+
+.success-pulse-animation {
+  animation: success-pulse 1.5s infinite;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-top-color: var(--color-interactive-default);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+.hidden {
+  display: none;
+}
+
+/* 3. Transition Utilities */
+/* Utilisons les variables CSS définies dans variables.css */
+.transition-opacity {
+  transition: opacity var(--transition-normal);
+}
+
+.transition-transform {
+  transition: transform var(--transition-normal);
+}
+
+.transition-background {
+  transition: background-color var(--transition-normal);
+}
+
+.transition-color {
+  transition: color var(--transition-normal);
+}
+
+.transition-border {
+  transition: border-color var(--transition-normal);
+}
+
+.transition-all {
+  transition: all var(--transition-normal);
+}
+
+/* Component-specific transitions */
+.save-indicator-transition {
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.input-transition {
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dropdown-transition {
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.property-option-transition {
+  transition: background-color var(--transition-fast);
+}
+
+.form-field-transition {
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.checkbox-transition {
+  transition: background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.fade-transition {
+  transition: opacity var(--transition-normal);
+}
+
+.tag-indicator-transition {
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.status-indicator-transition {
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.relation-card-transition {
+  transition: box-shadow var(--transition-fast), border-color var(--transition-fast);
+}
+
+.remove-button-transition {
+  transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+/* 4. Transform Utilities */
+.rotate-0 {
+  transform: rotate(0deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.vertical-center {
+  transform: translateY(-50%);
+}
+
+/* Page Animation */
+.page {
+  animation: fade-in var(--transition-normal);
+}

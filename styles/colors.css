@@ -1,0 +1,220 @@
+/* colors.css - All color-related utility classes and variables */
+
+/* 1. Color variables are already defined in variables.css */
+
+/* Base Text Colors */
+body {
+  color: var(--color-text-default);
+}
+
+.page-title, .app-title {
+  color: var(--color-text-default);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-text-placeholder);
+}
+
+.label {
+  color: var(--color-text-secondary);
+}
+
+.empty-state h3 {
+  color: var(--color-text-secondary);
+}
+
+.empty-state p, .note-date {
+  color: var(--color-text-tertiary);
+}
+
+.error-message {
+  color: var(--color-error);
+}
+
+.success-message {
+  color: var(--color-success);
+}
+
+/* 2. Status colors */
+.status-red {
+  background-color: rgba(235, 87, 87, 0.1);
+  color: var(--color-status-red);
+}
+
+.status-blue {
+  background-color: rgba(35, 131, 226, 0.1);
+  color: var(--color-status-blue);
+}
+
+.status-green {
+  background-color: rgba(15, 157, 88, 0.1);
+  color: var(--color-status-green);
+}
+
+.status-yellow {
+  background-color: rgba(242, 201, 76, 0.1);
+  color: var(--color-status-yellow);
+}
+
+.status-orange {
+  background-color: rgba(242, 154, 56, 0.1);
+  color: var(--color-status-orange);
+}
+
+.status-purple {
+  background-color: rgba(155, 81, 224, 0.1);
+  color: var(--color-status-purple);
+}
+
+.status-pink {
+  background-color: rgba(226, 73, 138, 0.1);
+  color: var(--color-status-pink);
+}
+
+.status-gray {
+  background-color: rgba(143, 143, 143, 0.1);
+  color: var(--color-status-gray);
+}
+
+/* 3. Select colors */
+.select-red {
+  background-color: rgba(235, 87, 87, 0.2);
+}
+
+.select-blue {
+  background-color: rgba(35, 131, 226, 0.2);
+}
+
+.select-green {
+  background-color: rgba(15, 157, 88, 0.2);
+}
+
+.select-yellow {
+  background-color: rgba(242, 201, 76, 0.2);
+}
+
+.select-orange {
+  background-color: rgba(242, 154, 56, 0.2);
+}
+
+.select-purple {
+  background-color: rgba(155, 81, 224, 0.2);
+}
+
+.select-pink {
+  background-color: rgba(226, 73, 138, 0.2);
+}
+
+.select-gray {
+  background-color: rgba(143, 143, 143, 0.2);
+}
+
+/* 4. Badge styles */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-6);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+}
+
+.badge.status-badge {
+  padding: var(--spacing-2) var(--spacing-8);
+}
+
+/* 5. State indicators */
+.error-state {
+  border-color: var(--color-error) !important;
+}
+
+.success-state {
+  border-color: var(--color-success) !important;
+}
+
+.warning-state {
+  border-color: var(--color-warning) !important;
+}
+
+/* 6. Component-specific colors */
+.note-card {
+  background-color: var(--color-bg-default);
+  border-color: var(--color-border-default);
+}
+
+.note-card:hover {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-sm);
+}
+
+.relation-card {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-default);
+}
+
+.relation-card:hover {
+  border-color: var(--color-border-focus);
+  background-color: var(--color-bg-hover);
+}
+
+/* 7. Empty states */
+.empty-state {
+  color: var(--color-text-tertiary);
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-default);
+}
+
+.loading-placeholder {
+  background-color: var(--color-bg-tertiary);
+  border-color: var(--color-border-default);
+}
+
+/* 8. User interface colors */
+.user-avatar {
+  background-color: var(--color-interactive-default);
+  color: white;
+}
+
+.file-icon {
+  background-color: var(--color-bg-tertiary);
+  color: var(--color-text-secondary);
+}
+
+/* 9. Hover effects */
+.hover-bg {
+  transition: background-color var(--transition-fast);
+}
+
+.hover-bg:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.hover-border {
+  transition: border-color var(--transition-fast);
+}
+
+.hover-border:hover {
+  border-color: var(--color-border-focus);
+}
+
+/* 10. Animation colors */
+.success-animation {
+  background-color: rgba(15, 157, 88, 0.1);
+}
+
+.error-animation {
+  background-color: rgba(235, 87, 87, 0.1);
+}
+
+.warning-animation {
+  background-color: rgba(242, 154, 56, 0.1);
+}
+
+/* Note Delete Button */
+.note-delete-btn {
+  color: var(--color-error);
+}
+
+.note-delete-btn:hover {
+  background-color: rgba(235, 87, 87, 0.1);
+}

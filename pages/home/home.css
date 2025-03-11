@@ -22,7 +22,7 @@
 
 .quick-note-input:focus {
   border-color: var(--color-interactive-default);
-  box-shadow: 0 0 0 2px rgba(35, 131, 226, 0.15);
+  box-shadow: 0 0 0 2px var(--color-interactive-shadow);
   outline: none;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .note-delete-btn:hover {
-  background-color: rgba(235, 87, 87, 0.1);
+  background-color: var(--color-error-bg);
 }
 
 .empty-state {

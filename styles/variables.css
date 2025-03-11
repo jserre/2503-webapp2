@@ -18,10 +18,14 @@
   
   --color-interactive-default: #2383e2;
   --color-interactive-hover: #0b6bcb;
+  --color-interactive-shadow: rgba(35, 131, 226, 0.15);
   
   --color-error: #eb5757;
+  --color-error-bg: rgba(235, 87, 87, 0.1);
   --color-success: #0f9d58;
+  --color-success-bg: rgba(15, 157, 88, 0.1);
   --color-warning: #f29a38;
+  --color-warning-bg: rgba(242, 154, 56, 0.1);
   
   /* Status Colors */
   --color-status-red: #eb5757;

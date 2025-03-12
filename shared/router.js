@@ -40,7 +40,7 @@ export function registerPage(pageName, loadFunction) {
  * @returns {Promise} - Promise that resolves when CSS is loaded
  */
 async function loadPageCSS(pageName) {
-  const cssPath = `./pages/${pageName}/${pageName}.css`;
+  const cssPath = `/pages/${pageName}/${pageName}.css`;
   
   // Skip if already loaded
   if (loadedStyles.has(cssPath)) {

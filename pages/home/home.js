@@ -12,7 +12,7 @@ import { getCurrentTheme, setTheme, ThemeMode } from '../../shared/theme-manager
 async function initHomePage(container, params = {}) {
   try {
     // Load the HTML for this page
-    const response = await fetch('./pages/home/home.html');
+    const response = await fetch('/pages/home/home.html');
     const html = await response.text();
     
     // Insert the HTML into the container

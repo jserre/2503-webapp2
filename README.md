@@ -40,14 +40,38 @@ Une application web inspirée de Notion avec une interface propre et minimaliste
 ### Installation
 
 1. Clonez ce dépôt
-2. Ouvrez le fichier `index.html` dans votre navigateur ou utilisez un serveur local
+2. Installez les dépendances avec npm :
+   ```bash
+   npm install
+   ```
 
-### Serveur de développement local
+### Serveur de développement Vite
 
-Vous pouvez utiliser n'importe quel serveur local simple pour développer cette application. Par exemple :
+Ce projet utilise Vite comme outil de développement et de build. Vite offre un serveur de développement ultra-rapide avec Hot Module Replacement (HMR).
 
-- Avec Python : `python -m http.server`
-- Avec Node.js : `npx serve`
+Pour démarrer le serveur de développement :
+
+```bash
+npm run dev
+```
+
+Le serveur démarrera sur http://localhost:3000 par défaut.
+
+### Build de production
+
+Pour créer une version optimisée pour la production :
+
+```bash
+npm run build
+```
+
+Les fichiers de production seront générés dans le dossier `dist/`.
+
+Pour prévisualiser la version de production localement :
+
+```bash
+npm run preview
+```
 
 ### Ajout d'une nouvelle page
 
@@ -59,8 +83,8 @@ Vous pouvez utiliser n'importe quel serveur local simple pour développer cette 
 import { registerPage } from '../../shared/router.js';
 
 function initSettingsPage(container, params) {
-  // Charger le HTML de la page
-  fetch('./pages/settings/settings.html')
+  // Charger le HTML de la page (avec chemin absolu pour Vite)
+  fetch('/pages/settings/settings.html')
     .then(response => response.text())
     .then(html => {
       // Insérer le HTML dans le conteneur
@@ -112,6 +136,23 @@ Le thème est géré par le module `theme-manager.js` qui :
 - Détecte les préférences du système
 - Sauvegarde les préférences de l'utilisateur dans localStorage
 - Applique dynamiquement les classes CSS appropriées
+
+## Variables d'environnement avec Vite
+
+Vite utilise un préfixe `VITE_` pour les variables d'environnement accessibles côté client. Dans ce projet :
+
+1. Créez ou modifiez le fichier `.env` à la racine du projet
+2. Préfixez toutes les variables avec `VITE_` :
+   ```
+   VITE_SUPABASE_URL=votre_url_supabase
+   VITE_SUPABASE_ANON=votre_clé_anon
+   ```
+3. Accédez aux variables dans le code via `import.meta.env.VITE_*` :
+   ```javascript
+   const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+   ```
+
+Seules les variables préfixées par `VITE_` seront exposées au code client.
 
 ## Stockage des données
 

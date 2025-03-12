@@ -1,6 +1,6 @@
 # inNotion Web App
 
-Une application web inspirée de Notion avec une interface propre et minimaliste. Construite avec JavaScript et CSS vanilla.
+Une application web inspirée de Notion avec une interface propre et minimaliste. Construite avec JavaScript et CSS vanilla, optimisée avec Vite et déployable sur Vercel.
 
 ## Fonctionnalités
 
@@ -10,12 +10,18 @@ Une application web inspirée de Notion avec une interface propre et minimaliste
 - Routeur simple avec chargement dynamique des CSS
 - Stockage local des préférences utilisateur et des données
 - Utilitaires pour la manipulation du DOM, la gestion des dates et plus
+- Configuration Vite pour un développement rapide et une build optimisée
+- Configuration Vercel pour un déploiement simplifié
 
 ## Structure du projet
 
 ```
 ├── index.html          # Point d'entrée HTML principal
 ├── index.js            # Point d'entrée JavaScript principal
+├── vite.config.js      # Configuration de Vite (serveur de développement et build)
+├── vercel.json         # Configuration de déploiement Vercel
+├── package.json        # Configuration du projet et dépendances
+├── icon128.png         # Icône de l'application
 ├── /shared/            # Utilitaires et fonctionnalités partagés
 │   ├── router.js       # Routeur simple avec chargement CSS dynamique
 │   ├── store.js        # Gestion d'état avec localStorage
@@ -153,6 +159,56 @@ Vite utilise un préfixe `VITE_` pour les variables d'environnement accessibles 
    ```
 
 Seules les variables préfixées par `VITE_` seront exposées au code client.
+
+## Déploiement sur Vercel
+
+Ce projet est configuré pour être déployé facilement sur Vercel. La configuration se trouve dans le fichier `vercel.json` à la racine du projet.
+
+### Configuration Vercel
+
+Le fichier `vercel.json` contient :
+- La version de l'API Vercel
+- Le framework utilisé (Vite)
+- Les commandes de build et d'installation
+- Le répertoire de sortie
+- Les règles de routage
+- Les variables d'environnement
+
+### Déploiement
+
+Pour déployer sur Vercel :
+
+1. Créez un compte sur [Vercel](https://vercel.com) si vous n'en avez pas déjà un
+2. Installez l'interface en ligne de commande Vercel :
+   ```bash
+   npm i -g vercel
+   ```
+3. Connectez-vous à votre compte Vercel :
+   ```bash
+   vercel login
+   ```
+4. Déployez l'application :
+   ```bash
+   vercel
+   ```
+
+### Variables d'environnement sur Vercel
+
+Les variables d'environnement sont définies dans le fichier `vercel.json` et font référence à des secrets Vercel :
+
+```json
+"env": {
+  "VITE_SUPABASE_URL": "@supabase_url",
+  "VITE_SUPABASE_ANON": "@supabase_anon"
+}
+```
+
+Pour configurer ces secrets sur Vercel :
+
+```bash
+vercel secrets add supabase_url "votre_url_supabase"
+vercel secrets add supabase_anon "votre_clé_anon"
+```
 
 ## Stockage des données
 

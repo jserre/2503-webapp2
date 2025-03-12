@@ -7,6 +7,10 @@ Ce document décrit l'architecture et l'organisation du code de l'application we
 ```
 ├── index.html           # Point d'entrée HTML principal
 ├── index.js             # Point d'entrée JavaScript principal
+├── vite.config.js       # Configuration de Vite (serveur de développement et build)
+├── vercel.json          # Configuration de déploiement Vercel
+├── package.json         # Configuration du projet et dépendances
+├── icon128.png          # Icône de l'application
 ├── /shared/             # Utilitaires partagés
 │   ├── router.js        # Routeur avec chargement CSS dynamique
 │   ├── store.js         # Gestion des données avec localStorage
@@ -157,6 +161,8 @@ Fournit des utilitaires communs :
 1. Implémenter des pages supplémentaires suivant la même structure
 2. Ajouter des fonctionnalités de gestion de contenu
 3. Améliorer les interactions utilisateur et les animations
-4. Intégrer avec des API externes pour la synchronisation des données
+4. Intégrer avec Supabase pour la synchronisation des données (configuration déjà présente dans vercel.json)
 5. Ajouter des fonctionnalités de collaboration en temps réel
 6. Développer des composants réutilisables pour l'interface utilisateur
+7. Optimiser le déploiement sur Vercel
+8. Ajouter des tests unitaires et d'intégration

@@ -6,8 +6,10 @@ Une application web inspirée de Notion avec une interface propre et minimaliste
 
 - Design inspiré de Notion avec une interface utilisateur épurée
 - Gestion de thème avec support des modes clair/sombre/système
-- Architecture basée sur des pages pour un développement facile
-- Stockage local des préférences utilisateur
+- Architecture modulaire basée sur des pages pour un développement facile
+- Routeur simple avec chargement dynamique des CSS
+- Stockage local des préférences utilisateur et des données
+- Utilitaires pour la manipulation du DOM, la gestion des dates et plus
 
 ## Structure du projet
 
@@ -15,11 +17,11 @@ Une application web inspirée de Notion avec une interface propre et minimaliste
 ├── index.html          # Point d'entrée HTML principal
 ├── index.js            # Point d'entrée JavaScript principal
 ├── /shared/            # Utilitaires et fonctionnalités partagés
-│   ├── router.js       # Routeur simple basé sur les pages
+│   ├── router.js       # Routeur simple avec chargement CSS dynamique
 │   ├── store.js        # Gestion d'état avec localStorage
-│   ├── utils.js        # Fonctions utilitaires
-│   ├── api.js          # Fonctions API
-│   └── theme-manager.js # Gestion des thèmes (clair/sombre)
+│   ├── utils.js        # Fonctions utilitaires (debounce, formatDate, etc.)
+│   ├── api.js          # Fonctions API avec mock pour développement
+│   └── theme-manager.js # Gestion des thèmes (clair/sombre/système)
 ├── /styles/            # Styles globaux
 │   ├── variables.css   # Variables CSS et thème
 │   ├── main.css        # Styles globaux
@@ -57,7 +59,24 @@ Vous pouvez utiliser n'importe quel serveur local simple pour développer cette 
 import { registerPage } from '../../shared/router.js';
 
 function initSettingsPage(container, params) {
-  // Code d'initialisation de la page
+  // Charger le HTML de la page
+  fetch('./pages/settings/settings.html')
+    .then(response => response.text())
+    .then(html => {
+      // Insérer le HTML dans le conteneur
+      container.innerHTML = html;
+      
+      // Initialiser les éléments de la page
+      initializePageElements();
+    })
+    .catch(error => {
+      console.error('Error loading settings page:', error);
+      container.innerHTML = '<div class="error-message">Failed to load settings page</div>';
+    });
+}
+
+function initializePageElements() {
+  // Code d'initialisation spécifique à la page
 }
 
 // Enregistrement de la page
@@ -82,6 +101,31 @@ import { navigateTo } from '../../shared/router.js';
 navigateTo('settings');
 ```
 
+## Gestion des thèmes
+
+L'application prend en charge trois modes de thème :
+- Clair (`light`)
+- Sombre (`dark`)
+- Système (`system`) - utilise les préférences du système d'exploitation
+
+Le thème est géré par le module `theme-manager.js` qui :
+- Détecte les préférences du système
+- Sauvegarde les préférences de l'utilisateur dans localStorage
+- Applique dynamiquement les classes CSS appropriées
+
 ## Stockage des données
 
-L'application utilise localStorage pour persister les données. Le fichier `store.js` fournit une interface simple pour gérer l'état et sauvegarder dans le stockage local.
+L'application utilise localStorage pour persister les données. Le fichier `store.js` fournit une interface simple pour gérer l'état et sauvegarder dans le stockage local :
+
+```javascript
+// Obtenir l'état actuel
+const state = getState();
+
+// Mettre à jour l'état (sauvegarde automatiquement dans localStorage)
+updateState({ userData: { name: 'Utilisateur' } });
+
+// S'abonner aux changements d'état
+const unsubscribe = subscribe(state => {
+  console.log('État mis à jour:', state);
+});
+```

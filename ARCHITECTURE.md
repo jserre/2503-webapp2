@@ -1,48 +1,38 @@
-# Architecture de l'extension inNotion
+# Architecture de l'application inNotion Web App
 
-Ce document décrit l'architecture et l'organisation du code de l'extension Chrome inNotion qui s'affiche dans le panneau latéral du navigateur.
+Ce document décrit l'architecture et l'organisation du code de l'application web inNotion, une application inspirée de Notion avec une interface propre et minimaliste.
 
 ## Structure du projet
 
 ```
-├── manifest.json         # Configuration de l'extension
-├── background.js         # Service worker pour événements d'arrière-plan
-├── sidepanel.html        # Structure minimaliste pour le conteneur
-├── sidepanel.js          # Orchestrateur central (très léger)
-├── /shared/              # Utilitaires partagés
-│   ├── router.js         # Routeur avec chargement CSS dynamique
-│   ├── store.js          # Gestion des données
-│   ├── utils.js          # Fonctions utilitaires
-│   ├── api.js            # Fonctions API
-│   └── theme-manager.js  # Gestionnaire de thème (clair/sombre)
-├── /styles/              # Styles globaux
-│   ├── variables.css     # Variables CSS (couleurs, polices, etc.)
-│   ├── main.css          # Importation et organisation des styles
-│   ├── typography.css    # Styles typographiques
-│   ├── animations.css    # Animations et transitions
-│   └── colors.css        # Classes utilitaires de couleurs
-└── /pages/               # Chaque page dans son propre dossier
-    ├── /home/            # Page d'accueil
-    │   ├── home.html     # Structure HTML de la page
-    │   ├── home.css      # Styles spécifiques à la page
-    │   └── home.js       # Logique JavaScript de la page
-    ├── /settings-list/   # Page de liste des paramètres
-    │   ├── settings-list.html
-    │   ├── settings-list.css
-    │   └── settings-list.js
-    └── /new-setting/     # Page de création de paramètre
-        ├── new-setting.html
-        ├── new-setting.css
-        └── new-setting.js
+├── index.html           # Point d'entrée HTML principal
+├── index.js             # Point d'entrée JavaScript principal
+├── /shared/             # Utilitaires partagés
+│   ├── router.js        # Routeur avec chargement CSS dynamique
+│   ├── store.js         # Gestion des données avec localStorage
+│   ├── utils.js         # Fonctions utilitaires
+│   ├── api.js           # Fonctions API
+│   └── theme-manager.js # Gestionnaire de thème (clair/sombre/système)
+├── /styles/             # Styles globaux
+│   ├── variables.css    # Variables CSS (couleurs, polices, etc.)
+│   ├── main.css         # Importation et organisation des styles
+│   ├── typography.css   # Styles typographiques
+│   ├── animations.css   # Animations et transitions
+│   └── colors.css       # Classes utilitaires de couleurs
+└── /pages/              # Chaque page dans son propre dossier
+    └── /home/           # Page d'accueil
+        ├── home.html    # Structure HTML de la page
+        ├── home.css     # Styles spécifiques à la page
+        └── home.js      # Logique JavaScript de la page
 ```
 
 ## Architecture par page
 
-L'extension suit une architecture modulaire où chaque page est autonome et contient ses propres fichiers HTML, CSS et JavaScript.
+L'application suit une architecture modulaire où chaque page est autonome et contient ses propres fichiers HTML, CSS et JavaScript.
 
 ### Cycle de vie d'une page
 
-1. **Initialisation** : Le fichier `sidepanel.js` importe toutes les pages disponibles
+1. **Initialisation** : Le fichier `index.js` importe toutes les pages disponibles
 2. **Enregistrement** : Chaque page s'enregistre auprès du routeur dans son fichier JavaScript
 3. **Navigation** : Le routeur charge dynamiquement les pages lorsque l'utilisateur navigue
 4. **Chargement** : La fonction `initXxxPage()` de chaque page charge le HTML depuis son fichier .html
@@ -50,22 +40,22 @@ L'extension suit une architecture modulaire où chaque page est autonome et cont
 
 ### Création d'une nouvelle page
 
-Pour ajouter une nouvelle page à l'extension :
+Pour ajouter une nouvelle page à l'application :
 
 1. Créer un nouveau dossier dans `/pages/` (ex: `/pages/settings/`)
 2. Créer trois fichiers dans ce dossier :
    - `settings.html` : Structure HTML de la page
    - `settings.css` : Styles spécifiques à la page
    - `settings.js` : Logique JavaScript avec l'enregistrement auprès du routeur
-3. Importer la page dans `sidepanel.js`:
+3. Importer la page dans `index.js`:
    ```javascript
-   // Dans sidepanel.js
+   // Dans index.js
    import './pages/settings/settings.js';
    ```
 
 ## Organisation des styles CSS
 
-L'extension suit une organisation modulaire des styles CSS pour faciliter la maintenance :
+L'application suit une organisation modulaire des styles CSS pour faciliter la maintenance :
 
 ### 1. Variables CSS (variables.css)
 
@@ -101,15 +91,15 @@ Organisé en quatre sections principales :
 ### 4. Couleurs (colors.css)
 
 Regroupe toutes les classes liées aux couleurs :
-2. Status colors - Couleurs de statut spécifiques à Notion
-3. Select colors - Couleurs de fond pour les éléments select
-4. Badge styles - Style pour les badges de statut et de sélection
-5. State indicators - Couleurs pour les états d'erreur et de succès
-6. Component-specific colors - Traitements de couleur spécifiques aux composants
-7. Empty states - Style pour les états vides ou en chargement
-8. User interface colors - Couleurs pour les personnes, fichiers et autres éléments d'interface
-9. Hover effects - Transitions de couleur pour les états de survol
-10. Animation colors - Effets de couleur pour les animations
+1. Status colors - Couleurs de statut spécifiques à Notion
+2. Select colors - Couleurs de fond pour les éléments select
+3. Badge styles - Style pour les badges de statut et de sélection
+4. State indicators - Couleurs pour les états d'erreur et de succès
+5. Component-specific colors - Traitements de couleur spécifiques aux composants
+6. Empty states - Style pour les états vides ou en chargement
+7. User interface colors - Couleurs pour les personnes, fichiers et autres éléments d'interface
+8. Hover effects - Transitions de couleur pour les états de survol
+9. Animation colors - Effets de couleur pour les animations
 
 ### 5. Main CSS (main.css)
 
@@ -117,14 +107,56 @@ Fichier principal qui importe tous les modules CSS et définit les styles de bas
 
 ## Flux de données
 
-- Les données utilisateur sont gérées via le module `store.js`
-- Les interactions avec l'API Chrome sont encapsulées dans `api.js`
-- Le routeur (`router.js`) gère la navigation entre les pages
-- Les utilitaires communs sont disponibles dans `utils.js`
+### Store (store.js)
+
+Le module `store.js` fournit une gestion d'état centralisée avec persistance dans localStorage :
+
+- `initStore()` - Initialise le store avec les données de localStorage
+- `getState(key)` - Récupère l'état actuel ou une partie spécifique
+- `updateState(newState)` - Met à jour l'état et sauvegarde dans localStorage
+- `subscribe(callback)` - S'abonne aux changements d'état
+
+### API (api.js)
+
+Le module `api.js` encapsule les interactions avec les API externes :
+
+- Utilise un système de mock pour le développement sans API externe
+- Fournit une interface cohérente pour les requêtes API
+- Gère les erreurs et les réponses
+
+### Router (router.js)
+
+Le routeur gère la navigation entre les pages :
+
+- `initRouter()` - Initialise le routeur
+- `registerPage(pageName, loadFunction)` - Enregistre une page
+- `navigateTo(pageName, params)` - Navigue vers une page spécifique
+- Charge automatiquement les CSS spécifiques à chaque page
+
+### Theme Manager (theme-manager.js)
+
+Le gestionnaire de thème gère les préférences de thème :
+
+- Supporte les modes clair, sombre et système
+- Détecte les préférences du système
+- Persiste les préférences utilisateur
+- Applique dynamiquement les classes CSS appropriées
+
+### Utils (utils.js)
+
+Fournit des utilitaires communs :
+
+- `debounce()` - Limite la fréquence d'exécution d'une fonction
+- `formatDate()` - Formate les dates de manière conviviale
+- `generateId()` - Génère des identifiants uniques
+- `safeJsonParse()` - Parse du JSON avec gestion des erreurs
+- `createElement()` - Crée des éléments DOM avec attributs et enfants
 
 ## Prochaines étapes de développement
 
 1. Implémenter des pages supplémentaires suivant la même structure
-2. Ajouter des fonctionnalités spécifiques à chaque page
+2. Ajouter des fonctionnalités de gestion de contenu
 3. Améliorer les interactions utilisateur et les animations
-4. Développer des fonctionnalités de synchronisation avec Notion
+4. Intégrer avec des API externes pour la synchronisation des données
+5. Ajouter des fonctionnalités de collaboration en temps réel
+6. Développer des composants réutilisables pour l'interface utilisateur

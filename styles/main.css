@@ -102,37 +102,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Loading Animations - Based on previous animations.css */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-.loading-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.spinner {
-  width: 28px;
-  height: 28px;
-  border: 3px solid rgba(0, 0, 0, 0.1);
-  border-top-color: var(--color-interactive-default);
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-.hidden {
-  display: none;
-}
-
 /* Card Styles */
 .card {
   background-color: var(--color-bg-default);
@@ -157,47 +126,6 @@ a {
 a:hover {
   color: var(--color-interactive-hover);
   text-decoration: underline;
-}
-
-/* Status Colors - Based on previous colors.css */
-.status-red {
-  background-color: rgba(235, 87, 87, 0.1);
-  color: var(--color-status-red);
-}
-
-.status-blue {
-  background-color: rgba(35, 131, 226, 0.1);
-  color: var(--color-status-blue);
-}
-
-.status-green {
-  background-color: rgba(15, 157, 88, 0.1);
-  color: var(--color-status-green);
-}
-
-.status-yellow {
-  background-color: rgba(242, 201, 76, 0.1);
-  color: var(--color-status-yellow);
-}
-
-.status-orange {
-  background-color: rgba(242, 154, 56, 0.1);
-  color: var(--color-status-orange);
-}
-
-.status-purple {
-  background-color: rgba(155, 81, 224, 0.1);
-  color: var(--color-status-purple);
-}
-
-.status-pink {
-  background-color: rgba(226, 73, 138, 0.1);
-  color: var(--color-status-pink);
-}
-
-.status-gray {
-  background-color: rgba(143, 143, 143, 0.1);
-  color: var(--color-status-gray);
 }
 
 /* Error and Success States */

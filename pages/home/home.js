@@ -5,6 +5,7 @@ import { formatDate, generateId } from '../../shared/utils.js';
 import { registerPage } from '../../shared/router.js';
 import { getState, updateState, subscribe } from '../../shared/store.js';
 import { getNotes, saveNote } from '../../shared/api.js';
+import { getCurrentTheme, setTheme, ThemeMode } from '../../shared/theme-manager.js';
 
 /**
  * Initialize the home page
@@ -49,6 +50,46 @@ function initializePageElements() {
   if (noteInput) {
     noteInput.addEventListener('keydown', handleNoteInputKeydown);
   }
+  
+  // Initialize theme switcher
+  initThemeSwitcher();
+}
+
+/**
+ * Initialize the theme switcher
+ */
+function initThemeSwitcher() {
+  // Get all theme toggle buttons
+  const themeToggles = document.querySelectorAll('[data-theme-toggle]');
+  
+  // Mark the current theme as active
+  const currentTheme = getCurrentTheme();
+  themeToggles.forEach(toggle => {
+    const themeValue = toggle.getAttribute('data-theme-toggle');
+    if (themeValue === currentTheme) {
+      toggle.classList.add('active');
+      toggle.setAttribute('aria-pressed', 'true');
+    }
+    
+    // Add click event listener to each toggle
+    toggle.addEventListener('click', () => {
+      const theme = toggle.getAttribute('data-theme-toggle');
+      
+      // Set the theme
+      setTheme(theme);
+      
+      // Update UI
+      themeToggles.forEach(btn => {
+        if (btn === toggle) {
+          btn.classList.add('active');
+          btn.setAttribute('aria-pressed', 'true');
+        } else {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        }
+      });
+    });
+  });
 }
 
 /**

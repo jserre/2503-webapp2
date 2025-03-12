@@ -5,15 +5,65 @@
 }
 
 .page-title {
-  margin-bottom: var(--spacing-24);
+  margin-bottom: var(--spacing-16);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
+}
+
+/* Theme switcher styles */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-24);
+  padding: var(--spacing-12);
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.theme-switcher-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  margin-right: var(--spacing-12);
+}
+
+.theme-switcher-options {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-6) var(--spacing-12);
+  background-color: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.theme-option:hover {
+  background-color: var(--color-bg-hover);
+}
+
+.theme-option.active {
+  background-color: var(--color-interactive-default);
+  color: white;
+  border-color: var(--color-interactive-default);
+}
+
+.theme-icon {
+  margin-right: var(--spacing-4);
 }
 
 .quick-note-input {
   width: 100%;
   padding: var(--spacing-12) var(--spacing-16);
   font-size: var(--font-size-md);
+  color: var(--color-text-default);
+  background-color: var(--color-bg-default);
   border: 1px solid var(--color-border-default);
   border-radius: var(--radius-md);
   margin-bottom: var(--spacing-20);

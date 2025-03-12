@@ -3,6 +3,7 @@
 // Import core modules
 import { initRouter, navigateTo } from './shared/router.js';
 import { initStore } from './shared/store.js';
+import { initThemeManager } from './shared/theme-manager.js';
 
 // Import pages - this ensures they are registered with the router
 // When adding a new page, just import it here
@@ -14,12 +15,15 @@ import './pages/new-setting/new-setting.js';
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('inNotion side panel initialized');
   
+  // Initialize the theme manager
+  await initThemeManager();
+  
   // Initialize the data store
   await initStore();
   
   // Initialize the router and navigate to the home page
   initRouter();
-  navigateTo('new-setting');
+  navigateTo('home');
   
   // Hide loading indicator when not needed
   const loadingIndicator = document.getElementById('loading-indicator');

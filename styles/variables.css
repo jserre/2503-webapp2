@@ -1,33 +1,8 @@
 /* variables.css - Global CSS variables for consistent styling */
 
+/* Common variables that don't change with theme */
 :root {
-  /* Color Palette - Based on Notion's design system */
-  --color-bg-default: #ffffff;
-  --color-bg-secondary: #f7f6f3;
-  --color-bg-tertiary: #eae8e3;
-  --color-bg-hover: #f1f1ef;
-  --color-bg-selected: #ebeaea;
-  
-  --color-text-default: #37352f;
-  --color-text-secondary: #6b6b69;
-  --color-text-tertiary: #908e85;
-  --color-text-placeholder: #b8b7b3;
-  
-  --color-border-default: #e4e2dd;
-  --color-border-focus: #888884;
-  
-  --color-interactive-default: #2383e2;
-  --color-interactive-hover: #0b6bcb;
-  --color-interactive-shadow: rgba(35, 131, 226, 0.15);
-  
-  --color-error: #eb5757;
-  --color-error-bg: rgba(235, 87, 87, 0.1);
-  --color-success: #0f9d58;
-  --color-success-bg: rgba(15, 157, 88, 0.1);
-  --color-warning: #f29a38;
-  --color-warning-bg: rgba(242, 154, 56, 0.1);
-  
-  /* Status Colors */
+  /* Status Colors - Common to both modes */
   --color-status-red: #eb5757;
   --color-status-blue: #2383e2;
   --color-status-green: #0f9d58;
@@ -36,7 +11,7 @@
   --color-status-purple: #9b51e0;
   --color-status-pink: #e2498a;
   --color-status-gray: #8f8f8f;
-  
+
   /* Typography */
   --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji";
   --font-size-xs: 12px;
@@ -63,11 +38,6 @@
   --spacing-32: 32px;
   --spacing-48: 48px;
   
-  /* Elevation (shadows) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
-  
   /* Border radius */
   --radius-sm: 3px;
   --radius-md: 6px;
@@ -82,4 +52,135 @@
   --sidebar-width: 220px;
   --header-height: 45px;
   --container-max-width: 100%;
+    
+  /* Elevation (shadows) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Light theme (default) */
+:root, .theme-light {
+  /* UI Colors - Light Mode */
+  --color-bg-default: #ffffff;
+  --color-bg-secondary: #f7f6f3;
+  --color-bg-tertiary: #eae8e3;
+  --color-bg-hover: #f1f1ef;
+  --color-bg-selected: #ebeaea;
+  
+  --color-text-default: #37352f;
+  --color-text-secondary: #6b6b69;
+  --color-text-tertiary: #908e85;
+  --color-text-placeholder: #b8b7b3;
+  
+  --color-border-default: #e4e2dd;
+  --color-border-focus: #888884;
+  
+  --color-interactive-default: #2383e2;
+  --color-interactive-hover: #0b6bcb;
+  --color-interactive-shadow: rgba(35, 131, 226, 0.15);
+  
+  --color-error: #eb5757;
+  --color-error-bg: rgba(235, 87, 87, 0.1);
+  --color-success: #0f9d58;
+  --color-success-bg: rgba(15, 157, 88, 0.1);
+  --color-warning: #f29a38;
+  --color-warning-bg: rgba(242, 154, 56, 0.1);
+  
+  /* Notion Text Colors - Light Mode */
+  --notion-text-default: #37352f;
+  --notion-text-gray: #9b9a97;
+  --notion-text-red: #e03e3e;
+  --notion-text-pink: #ad1a72;
+  --notion-text-purple: #6940a5;
+  --notion-text-blue: #0b6e99;
+  --notion-text-green: #0f7b6c;
+  --notion-text-yellow: #dfab01;
+  --notion-text-orange: #d9730d;
+  --notion-text-brown: #64473a;
+  
+  /* Notion Background Colors - Light Mode */
+  --notion-bg-default: #ffffff;
+  --notion-bg-gray: #ebeced;
+  --notion-bg-red: #fbe4e4;
+  --notion-bg-pink: #f4dfeb;
+  --notion-bg-purple: #eae4f2;
+  --notion-bg-blue: #ddebf1;
+  --notion-bg-green: #ddedea;
+  --notion-bg-yellow: #fbf3db;
+  --notion-bg-orange: #faebdd;
+  --notion-bg-brown: #e9e5e3;
+  
+  /* Notion UI Colors - Light Mode */
+  --notion-ui-main: #ffffff;
+  --notion-ui-sidebar: #f7f6f3;
+  --notion-ui-hover: #ffffff;
+  
+  /* Shadow with light mode opacity */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark theme */
+.theme-dark {
+  /* UI Colors - Dark Mode */
+  --color-bg-default: #2f3438;
+  --color-bg-secondary: #373c3f;
+  --color-bg-tertiary: #3f4448;
+  --color-bg-hover: #454b4e;
+  --color-bg-selected: #505659;
+  
+  --color-text-default: #ffffff;
+  --color-text-secondary: #d3d3d3;
+  --color-text-tertiary: #a6a6a6;
+  --color-text-placeholder: #7a7a7a;
+  
+  --color-border-default: #4d5154;
+  --color-border-focus: #6c7073;
+  
+  --color-interactive-default: #529cca;
+  --color-interactive-hover: #7ab8dc;
+  --color-interactive-shadow: rgba(82, 156, 202, 0.15);
+  
+  --color-error: #ff7369;
+  --color-error-bg: rgba(255, 115, 105, 0.1);
+  --color-success: #4dab9a;
+  --color-success-bg: rgba(77, 171, 154, 0.1);
+  --color-warning: #ffa344;
+  --color-warning-bg: rgba(255, 163, 68, 0.1);
+  
+  /* Notion Text Colors - Dark Mode */
+  --notion-text-default: #ffffff;
+  --notion-text-gray: #979a9b;
+  --notion-text-red: #ff7369;
+  --notion-text-pink: #e255a1;
+  --notion-text-purple: #9a6dd7;
+  --notion-text-blue: #529cca;
+  --notion-text-green: #4dab9a;
+  --notion-text-yellow: #ffdc49;
+  --notion-text-orange: #ffa344;
+  --notion-text-brown: #937264;
+  
+  /* Notion Background Colors - Dark Mode */
+  --notion-bg-default: #2f3438;
+  --notion-bg-gray: #454b4e;
+  --notion-bg-red: #594141;
+  --notion-bg-pink: #533b4c;
+  --notion-bg-purple: #443f57;
+  --notion-bg-blue: #364954;
+  --notion-bg-green: #354c4b;
+  --notion-bg-yellow: #59563b;
+  --notion-bg-orange: #594a3a;
+  --notion-bg-brown: #434040;
+  
+  /* Notion UI Colors - Dark Mode */
+  --notion-ui-main: #2f3438;
+  --notion-ui-sidebar: #373c3f;
+  --notion-ui-hover: #3f4448;
+  
+  /* Shadow with dark mode opacity */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.15);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.3);
 }

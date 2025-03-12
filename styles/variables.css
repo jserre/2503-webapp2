@@ -42,7 +42,7 @@
   --notion-text-orange: #d9730d;
   --notion-text-brown: #64473a;
   
-  /* Status Colors - Common to both modes */
+  /* Status Colors - Light mode */
   --color-status-red: #eb5757;
   --color-status-blue: #2383e2;
   --color-status-green: #0f9d58;
@@ -73,44 +73,44 @@
   /* These will be used when a dark mode toggle is implemented */
   
   /* UI Colors - Dark Mode */
-  --color-dark-bg-default: #2f3438;
-  --color-dark-bg-secondary: #373c3f;
-  --color-dark-bg-tertiary: #3f4448;
-  --color-dark-bg-hover: #454b4e;
-  --color-dark-bg-selected: #505659;
+  --color-bg-default: #2f3438;
+  --color-bg-secondary: #373c3f;
+  --color-bg-tertiary: #3f4448;
+  --color-bg-hover: #454b4e;
+  --color-bg-selected: #505659;
   
-  --color-dark-text-default: #ffffff;
-  --color-dark-text-secondary: #d3d3d3;
-  --color-dark-text-tertiary: #a6a6a6;
-  --color-dark-text-placeholder: #7a7a7a;
+  --color-text-default: #ffffff;
+  --color-text-secondary: #d3d3d3;
+  --color-text-tertiary: #a6a6a6;
+  --color-text-placeholder: #7a7a7a;
   
-  --color-dark-border-default: #4d5154;
-  --color-dark-border-focus: #6c7073;
+  --color-border-default: #4d5154;
+  --color-border-focus: #6c7073;
   
-  --color-dark-interactive-default: #529cca;
-  --color-dark-interactive-hover: #7ab8dc;
-  --color-dark-interactive-shadow: rgba(82, 156, 202, 0.15);
+  --color-interactive-default: #529cca;
+  --color-interactive-hover: #7ab8dc;
+  --color-interactive-shadow: rgba(82, 156, 202, 0.15);
   
-  --color-dark-error: #ff7369;
-  --color-dark-error-bg: rgba(255, 115, 105, 0.1);
-  --color-dark-success: #4dab9a;
-  --color-dark-success-bg: rgba(77, 171, 154, 0.1);
-  --color-dark-warning: #ffa344;
-  --color-dark-warning-bg: rgba(255, 163, 68, 0.1);
+  --color-error: #ff7369;
+  --color-error-bg: rgba(255, 115, 105, 0.1);
+  --color-success: #4dab9a;
+  --color-success-bg: rgba(77, 171, 154, 0.1);
+  --color-warning: #ffa344;
+  --color-warning-bg: rgba(255, 163, 68, 0.1);
   
   /* Notion Text Colors - Dark Mode */
-  --notion-dark-text-default: #ffffff;
-  --notion-dark-text-gray: #979a9b;
-  --notion-dark-text-red: #ff7369;
-  --notion-dark-text-pink: #e255a1;
-  --notion-dark-text-purple: #9a6dd7;
-  --notion-dark-text-blue: #529cca;
-  --notion-dark-text-green: #4dab9a;
-  --notion-dark-text-yellow: #ffdc49;
-  --notion-dark-text-orange: #ffa344;
-  --notion-dark-text-brown: #937264;
+  --notion-text-default: #ffffff;
+  --notion-text-gray: #979a9b;
+  --notion-text-red: #ff7369;
+  --notion-text-pink: #e255a1;
+  --notion-text-purple: #9a6dd7;
+  --notion-text-blue: #529cca;
+  --notion-text-green: #4dab9a;
+  --notion-text-yellow: #ffdc49;
+  --notion-text-orange: #ffa344;
+  --notion-text-brown: #937264;
   
-  /* Status Colors - Common to both modes */
+  /* Status Colors - Dark mode */
   --color-status-red: #eb5757;
   --color-status-blue: #2383e2;
   --color-status-green: #0f9d58;
@@ -121,21 +121,21 @@
   --color-status-gray: #8f8f8f;
 
   /* Notion Background Colors - Dark Mode */
-  --notion-dark-bg-default: #2f3438;
-  --notion-dark-bg-gray: #454b4e;
-  --notion-dark-bg-red: #594141;
-  --notion-dark-bg-pink: #533b4c;
-  --notion-dark-bg-purple: #443f57;
-  --notion-dark-bg-blue: #364954;
-  --notion-dark-bg-green: #354c4b;
-  --notion-dark-bg-yellow: #59563b;
-  --notion-dark-bg-orange: #594a3a;
-  --notion-dark-bg-brown: #434040;
+  --notion-bg-default: #2f3438;
+  --notion-bg-gray: #454b4e;
+  --notion-bg-red: #594141;
+  --notion-bg-pink: #533b4c;
+  --notion-bg-purple: #443f57;
+  --notion-bg-blue: #364954;
+  --notion-bg-green: #354c4b;
+  --notion-bg-yellow: #59563b;
+  --notion-bg-orange: #594a3a;
+  --notion-bg-brown: #434040;
   
   /* Notion UI Colors - Dark Mode */
-  --notion-dark-ui-main: #2f3438;
-  --notion-dark-ui-sidebar: #373c3f;
-  --notion-dark-ui-hover: #3f4448;
+  --notion-ui-main: #2f3438;
+  --notion-ui-sidebar: #373c3f;
+  --notion-ui-hover: #3f4448;
   
   /* Typography */
   --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji";

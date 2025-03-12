@@ -159,47 +159,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Status Colors - Based on previous colors.css */
-.status-red {
-  background-color: rgba(235, 87, 87, 0.1);
-  color: var(--color-status-red);
-}
-
-.status-blue {
-  background-color: rgba(35, 131, 226, 0.1);
-  color: var(--color-status-blue);
-}
-
-.status-green {
-  background-color: rgba(15, 157, 88, 0.1);
-  color: var(--color-status-green);
-}
-
-.status-yellow {
-  background-color: rgba(242, 201, 76, 0.1);
-  color: var(--color-status-yellow);
-}
-
-.status-orange {
-  background-color: rgba(242, 154, 56, 0.1);
-  color: var(--color-status-orange);
-}
-
-.status-purple {
-  background-color: rgba(155, 81, 224, 0.1);
-  color: var(--color-status-purple);
-}
-
-.status-pink {
-  background-color: rgba(226, 73, 138, 0.1);
-  color: var(--color-status-pink);
-}
-
-.status-gray {
-  background-color: rgba(143, 143, 143, 0.1);
-  color: var(--color-status-gray);
-}
-
 /* Error and Success States */
 .error-message {
   color: var(--color-error);

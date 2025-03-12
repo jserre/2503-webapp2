@@ -10,12 +10,72 @@
   <!-- Page-specific styles are loaded dynamically -->
   <!-- Root script with type="module" to enable ES6 imports -->
   <script type="module" src="index.js"></script>
+  <style>
+    /* Navigation styles */
+    .nav-container {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 1rem;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .nav-item {
+      margin-left: 1.5rem;
+    }
+    
+    .nav-link {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+      cursor: pointer;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary-color);
+    }
+    
+    .auth-status {
+      display: flex;
+      align-items: center;
+    }
+    
+    .user-avatar {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background-color: var(--primary-color);
+      margin-right: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
   <div class="app-container">
-    <!-- Header with app title -->
+    <!-- Header with app title and navigation -->
     <header class="header">
       <h1 class="app-title">inNotion Web App</h1>
+      <nav class="nav-container">
+        <ul class="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link" id="home-link">Home</a>
+          </li>
+          <li class="nav-item" id="auth-container">
+            <a class="nav-link" id="login-link">Login</a>
+          </li>
+        </ul>
+      </nav>
     </header>
     
     <!-- Main content area where pages will be rendered -->
@@ -26,5 +86,74 @@
       </div>
     </main>
   </div>
+  
+  <script>
+    // Add navigation event listeners
+    document.addEventListener('DOMContentLoaded', () => {
+      const homeLink = document.getElementById('home-link');
+      const loginLink = document.getElementById('login-link');
+      const authContainer = document.getElementById('auth-container');
+      
+      // Home link
+      homeLink.addEventListener('click', () => {
+        window.history.pushState({}, '', '/');
+        const event = new PopStateEvent('popstate');
+        window.dispatchEvent(event);
+      });
+      
+      // Login link
+      loginLink.addEventListener('click', () => {
+        window.history.pushState({}, '', '/login');
+        const event = new PopStateEvent('popstate');
+        window.dispatchEvent(event);
+      });
+      
+      // Update auth display based on session
+      function updateAuthDisplay() {
+        // This will be handled by the auth module
+        const session = JSON.parse(localStorage.getItem('supabase.auth.token') || 'null');
+        
+        if (session?.access_token) {
+          // User is logged in
+          authContainer.innerHTML = `
+            <div class="auth-status">
+              <div class="user-avatar">U</div>
+              <a class="nav-link" id="logout-link">Logout</a>
+            </div>
+          `;
+          
+          // Add logout handler
+          document.getElementById('logout-link').addEventListener('click', () => {
+            // This will trigger the auth state change listener in auth.js
+            localStorage.removeItem('supabase.auth.token');
+            updateAuthDisplay();
+            window.history.pushState({}, '', '/');
+            const event = new PopStateEvent('popstate');
+            window.dispatchEvent(event);
+          });
+        } else {
+          // User is not logged in
+          authContainer.innerHTML = `<a class="nav-link" id="login-link">Login</a>`;
+          
+          // Re-add login handler
+          document.getElementById('login-link').addEventListener('click', () => {
+            window.history.pushState({}, '', '/login');
+            const event = new PopStateEvent('popstate');
+            window.dispatchEvent(event);
+          });
+        }
+      }
+      
+      // Initial auth display update
+      updateAuthDisplay();
+      
+      // Listen for storage events (for auth state changes)
+      window.addEventListener('storage', (event) => {
+        if (event.key === 'supabase.auth.token') {
+          updateAuthDisplay();
+        }
+      });
+    });
+  </script>
 </body>
 </html>

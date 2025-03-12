@@ -5,7 +5,9 @@ let state = {
   userData: {},
   currentPage: null,
   isLoading: false,
-  notifications: []
+  notifications: [],
+  user: null,
+  session: null
 };
 
 // Subscribe callback functions
@@ -93,3 +95,38 @@ export function subscribe(callback) {
 function notifySubscribers() {
   subscribers.forEach(callback => callback(state));
 }
+
+/**
+ * Store object with simplified interface for use in components
+ */
+export const store = {
+  /**
+   * Get a value from the store
+   * @param {string} key - Key to get
+   * @returns {any} - Value for the key
+   */
+  get(key) {
+    return getState(key);
+  },
+  
+  /**
+   * Set a value in the store
+   * @param {string} key - Key to set
+   * @param {any} value - Value to set
+   * @returns {Object} - Updated state
+   */
+  set(key, value) {
+    const update = {};
+    update[key] = value;
+    return updateState(update);
+  },
+  
+  /**
+   * Subscribe to store changes
+   * @param {Function} callback - Function to call when store changes
+   * @returns {Function} - Function to unsubscribe
+   */
+  subscribe(callback) {
+    return subscribe(callback);
+  }
+};

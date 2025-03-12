@@ -1,0 +1,164 @@
+.login-container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--surface-color);
+  box-shadow: var(--shadow-elevation-2);
+}
+
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+
+.form-group input {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--input-bg-color, var(--surface-color-alt));
+  color: var(--text-color);
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-transparent);
+  outline: none;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.primary-button, .secondary-button, .social-button {
+  padding: 0.75rem 1rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  flex: 1;
+  border: none;
+  font-size: 1rem;
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.secondary-button {
+  background-color: var(--surface-color-alt);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+}
+
+.secondary-button:hover {
+  background-color: var(--hover-color);
+}
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.auth-divider span {
+  padding: 0 0.75rem;
+  color: var(--text-color-secondary);
+  font-size: 0.875rem;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.social-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: white;
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  padding: 0.75rem;
+}
+
+.social-button:hover {
+  background-color: var(--hover-color);
+}
+
+.auth-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.auth-links a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+
+.auth-links a:hover {
+  text-decoration: underline;
+}
+
+.auth-message {
+  margin-top: 1.5rem;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-sm);
+  text-align: center;
+  font-size: 0.875rem;
+  /* Default to hidden, will be shown via JavaScript */
+  /* display: none; - Removed this as we're using inline style */
+}
+
+.auth-message.success {
+  /* No need for display: block as we'll set it via JavaScript */
+  background-color: var(--success-color-transparent, rgba(0, 128, 0, 0.1));
+  color: var(--success-color, green);
+  border: 1px solid var(--success-color, green);
+}
+
+.auth-message.error {
+  /* No need for display: block as we'll set it via JavaScript */
+  background-color: var(--error-color-transparent, rgba(220, 53, 69, 0.1));
+  color: var(--error-color, #dc3545);
+  border: 1px solid var(--error-color, #dc3545);
+}

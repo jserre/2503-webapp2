@@ -1,13 +1,23 @@
 // router.js - Simple page-based router for navigation between pages
 
-// Map of registered pages with their load functions
+// Map of registered pages with their load functions and cleanup functions
 const pages = {};
+
+// Map of routes to page names
+const routes = {
+  '/': 'home',
+  '/login': 'login',
+  // Add more routes as needed
+};
 
 // Track loaded CSS files to avoid duplicates
 const loadedStyles = new Set();
 
 // Page container element reference
 let pageContainer;
+
+// Current active page cleanup function
+let currentPageCleanup = null;
 
 /**
  * Initialize the router
@@ -21,7 +31,23 @@ export function initRouter() {
     return;
   }
   
+  // Handle initial route
+  handleRouteChange();
+  
+  // Listen for popstate events (browser back/forward)
+  window.addEventListener('popstate', handleRouteChange);
+  
   console.log('Router initialized');
+}
+
+/**
+ * Handle route changes
+ */
+function handleRouteChange() {
+  const path = window.location.pathname;
+  const pageName = routes[path] || 'home'; // Default to home if route not found
+  
+  loadPage(pageName);
 }
 
 /**
@@ -64,11 +90,17 @@ async function loadPageCSS(pageName) {
 }
 
 /**
- * Navigate to a specific page
- * @param {string} pageName - Name of the page to navigate to
+ * Load a specific page
+ * @param {string} pageName - Name of the page to load
  * @param {Object} params - Optional parameters to pass to the page
  */
-export function navigateTo(pageName, params = {}) {
+function loadPage(pageName, params = {}) {
+  // Clean up current page if needed
+  if (currentPageCleanup && typeof currentPageCleanup === 'function') {
+    currentPageCleanup();
+    currentPageCleanup = null;
+  }
+  
   // Clear existing content
   if (pageContainer) {
     pageContainer.innerHTML = '';
@@ -93,10 +125,24 @@ export function navigateTo(pageName, params = {}) {
           pageEl.className = `page ${pageName}-page`;
           pageContainer.appendChild(pageEl);
           
-          // Call the page load function
-          pages[pageName](pageEl, params);
-          
-          console.log(`Navigated to page: ${pageName}`);
+          // Load page HTML
+          fetch(`/pages/${pageName}/${pageName}.html`)
+            .then(response => response.text())
+            .then(html => {
+              pageEl.innerHTML = html;
+              
+              // Call the page load function and store cleanup function if returned
+              const cleanup = pages[pageName](pageEl, params);
+              if (typeof cleanup === 'function') {
+                currentPageCleanup = cleanup;
+              }
+              
+              console.log(`Navigated to page: ${pageName}`);
+            })
+            .catch(error => {
+              console.error(`Failed to load HTML for page: ${pageName}`, error);
+              pageEl.innerHTML = `<div class="error-message">Failed to load page content</div>`;
+            });
         }, 300);
       });
     } else {
@@ -112,3 +158,53 @@ export function navigateTo(pageName, params = {}) {
     }
   }
 }
+
+/**
+ * Navigate to a specific page
+ * @param {string} pageName - Name of the page to navigate to
+ * @param {Object} params - Optional parameters to pass to the page
+ */
+export function navigateTo(pageName, params = {}) {
+  loadPage(pageName, params);
+}
+
+/**
+ * Router object for navigation
+ */
+export const router = {
+  /**
+   * Navigate to a path
+   * @param {string} path - Path to navigate to
+   * @param {Object} params - Optional parameters
+   * @param {boolean} pushState - Whether to push state to history
+   */
+  navigate(path, params = {}, pushState = true) {
+    const pageName = routes[path] || 'home';
+    
+    // Update browser history
+    if (pushState) {
+      window.history.pushState({}, '', path);
+    }
+    
+    // Load the page
+    loadPage(pageName, params);
+  },
+  
+  /**
+   * Register a new route
+   * @param {string} path - Path to register
+   * @param {string} pageName - Page name to associate with the path
+   */
+  registerRoute(path, pageName) {
+    routes[path] = pageName;
+  },
+  
+  /**
+   * Get the current page name
+   * @returns {string} - Current page name
+   */
+  getCurrentPage() {
+    const path = window.location.pathname;
+    return routes[path] || 'home';
+  }
+};

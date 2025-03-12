@@ -10,8 +10,8 @@
     "vercel-build": "npm install -g vite && vite build"
   },
   "dependencies": {
-    "vite": "^5.0.0"
   },
   "devDependencies": {
+    "vite": "^5.0.0"
   }
 }

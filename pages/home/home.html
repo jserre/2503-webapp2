@@ -3,6 +3,25 @@
 <div class="home-page">
   <h1 class="page-title">Welcome to inNotion</h1>
   
+  <!-- Theme switcher -->
+  <div class="theme-switcher">
+    <div class="theme-switcher-label">Theme:</div>
+    <div class="theme-switcher-options">
+      <button class="theme-option" data-theme-toggle="light" aria-label="Light theme">
+        <span class="theme-icon">☀️</span>
+        <span class="theme-name">Light</span>
+      </button>
+      <button class="theme-option" data-theme-toggle="dark" aria-label="Dark theme">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-name">Dark</span>
+      </button>
+      <button class="theme-option" data-theme-toggle="system" aria-label="System theme">
+        <span class="theme-icon">💻</span>
+        <span class="theme-name">System</span>
+      </button>
+    </div>
+  </div>
+  
   <input type="text" class="quick-note-input" placeholder="Type a quick note..." id="note-input">
   
   <div class="notes-container" id="notes-container"></div>

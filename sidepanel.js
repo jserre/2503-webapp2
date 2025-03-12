@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Initialize the router and navigate to the home page
   initRouter();
-  navigateTo('new-setting');
+  navigateTo('home');
   
   // Hide loading indicator when not needed
   const loadingIndicator = document.getElementById('loading-indicator');

@@ -1,6 +1,6 @@
 # Architecture de l'extension inNotion
 
-Ce document décrit l'architecture et l'organisation du code de l'extension Chrome inNotion, conçue pour imiter l'interface de Notion dans le panneau latéral du navigateur.
+Ce document décrit l'architecture et l'organisation du code de l'extension Chrome inNotion qui s'affiche dans le panneau latéral du navigateur.
 
 ## Structure du projet
 
@@ -13,7 +13,8 @@ Ce document décrit l'architecture et l'organisation du code de l'extension Chro
 │   ├── router.js         # Routeur avec chargement CSS dynamique
 │   ├── store.js          # Gestion des données
 │   ├── utils.js          # Fonctions utilitaires
-│   └── api.js            # Fonctions API
+│   ├── api.js            # Fonctions API
+│   └── theme-manager.js  # Gestionnaire de thème (clair/sombre)
 ├── /styles/              # Styles globaux
 │   ├── variables.css     # Variables CSS (couleurs, polices, etc.)
 │   ├── main.css          # Importation et organisation des styles
@@ -21,10 +22,18 @@ Ce document décrit l'architecture et l'organisation du code de l'extension Chro
 │   ├── animations.css    # Animations et transitions
 │   └── colors.css        # Classes utilitaires de couleurs
 └── /pages/               # Chaque page dans son propre dossier
-    └── /home/            # Exemple: page d'accueil
-        ├── home.html     # Structure HTML de la page
-        ├── home.css      # Styles spécifiques à la page
-        └── home.js       # Logique JavaScript de la page
+    ├── /home/            # Page d'accueil
+    │   ├── home.html     # Structure HTML de la page
+    │   ├── home.css      # Styles spécifiques à la page
+    │   └── home.js       # Logique JavaScript de la page
+    ├── /settings-list/   # Page de liste des paramètres
+    │   ├── settings-list.html
+    │   ├── settings-list.css
+    │   └── settings-list.js
+    └── /new-setting/     # Page de création de paramètre
+        ├── new-setting.html
+        ├── new-setting.css
+        └── new-setting.js
 ```
 
 ## Architecture par page
@@ -92,7 +101,6 @@ Organisé en quatre sections principales :
 ### 4. Couleurs (colors.css)
 
 Regroupe toutes les classes liées aux couleurs :
-1. Color variables - Variables CSS centralisées
 2. Status colors - Couleurs de statut spécifiques à Notion
 3. Select colors - Couleurs de fond pour les éléments select
 4. Badge styles - Style pour les badges de statut et de sélection

@@ -8,6 +8,7 @@ A Chrome extension that provides a Notion-like interface in the Chrome side pane
 - Notion-inspired design with clean UI
 - Simple note-taking functionality
 - Page-based architecture for easy development
+- Theme management with light/dark mode support
 
 ## Project Structure
 
@@ -20,14 +21,27 @@ A Chrome extension that provides a Notion-like interface in the Chrome side pane
 │   ├── router.js        # Simple page-based router
 │   ├── store.js         # State management
 │   ├── utils.js         # Utility functions
-│   └── api.js           # API functions
+│   ├── api.js           # API functions
+│   └── theme-manager.js # Theme management (light/dark mode)
 ├── /styles/             # Global styles
 │   ├── variables.css    # CSS variables and theme
-│   └── main.css         # Global styles
+│   ├── main.css         # Global styles
+│   ├── typography.css   # Typography styles
+│   ├── colors.css       # Color utilities
+│   └── animations.css   # Animation utilities
 ├── /pages/              # Individual pages
-│   └── /home/           # Home page
-│       ├── home.js      # Home page logic
-│       └── home.css     # Home page styles
+│   ├── /home/           # Home page
+│   │   ├── home.html    # Home page HTML
+│   │   ├── home.js      # Home page logic
+│   │   └── home.css     # Home page styles
+│   ├── /settings-list/  # Settings list page
+│   │   ├── settings-list.html
+│   │   ├── settings-list.js
+│   │   └── settings-list.css
+│   └── /new-setting/    # New setting page
+│       ├── new-setting.html
+│       ├── new-setting.js
+│       └── new-setting.css
 └── icon128.png          # Extension icon
 ```
 

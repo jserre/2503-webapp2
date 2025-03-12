@@ -52,6 +52,11 @@
   --sidebar-width: 220px;
   --header-height: 45px;
   --container-max-width: 100%;
+    
+  /* Elevation (shadows) */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Light theme (default) */
@@ -178,50 +183,4 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.15);
   --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.2);
   --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.3);
-  
-  /* Typography */
-  --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji";
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-md: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 600;
-  --line-height-tight: 1.3;
-  --line-height-normal: 1.5;
-  --line-height-loose: 1.7;
-  
-  /* Spacing */
-  --spacing-2: 2px;
-  --spacing-4: 4px;
-  --spacing-6: 6px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-48: 48px;
-  
-  /* Elevation (shadows) */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 2px 4px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 3px 8px rgba(0, 0, 0, 0.15);
-  
-  /* Border radius */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-lg: 10px;
-  
-  /* Animation */
-  --transition-fast: 0.1s ease;
-  --transition-normal: 0.2s ease;
-  --transition-slow: 0.3s ease;
-  
-  /* Layout */
-  --sidebar-width: 220px;
-  --header-height: 45px;
-  --container-max-width: 100%;
 }

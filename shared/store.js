@@ -12,18 +12,18 @@ let state = {
 const subscribers = [];
 
 /**
- * Initialize the store with data from Chrome storage
+ * Initialize the store with data from localStorage
  * @returns {Promise} - Promise that resolves when store is initialized
  */
 export async function initStore() {
   try {
-    // Get data from Chrome storage
-    const data = await chrome.storage.local.get(['userData']);
+    // Get data from localStorage
+    const userData = localStorage.getItem('userData');
     
     // Initialize state with stored data
     state = {
       ...state,
-      userData: data.userData || {},
+      userData: userData ? JSON.parse(userData) : {},
       isLoading: false
     };
     
@@ -59,9 +59,9 @@ export function updateState(newState) {
   // Merge new state with current state
   state = { ...state, ...newState };
   
-  // Save relevant parts to Chrome storage
+  // Save relevant parts to localStorage
   if (newState.userData) {
-    chrome.storage.local.set({ userData: state.userData });
+    localStorage.setItem('userData', JSON.stringify(state.userData));
   }
   
   // Notify subscribers of state change

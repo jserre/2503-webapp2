@@ -11,7 +11,7 @@ export const ThemeMode = {
 };
 
 /**
- * Key used for storing theme preference in chrome.storage.sync
+ * Key used for storing theme preference in localStorage
  * @type {string}
  */
 const THEME_STORAGE_KEY = 'themePreference';
@@ -56,13 +56,13 @@ export async function initThemeManager() {
 }
 
 /**
- * Load the saved theme preference from storage
+ * Load the saved theme preference from localStorage
  * @returns {Promise<ThemeMode|null>} The saved theme preference or null if not found
  */
 async function loadThemePreference() {
   try {
-    const result = await chrome.storage.sync.get(THEME_STORAGE_KEY);
-    return result[THEME_STORAGE_KEY] || null;
+    const theme = localStorage.getItem(THEME_STORAGE_KEY);
+    return theme || null;
   } catch (error) {
     console.error('Failed to load theme preference:', error);
     return null;
@@ -70,13 +70,13 @@ async function loadThemePreference() {
 }
 
 /**
- * Save the theme preference to storage
+ * Save the theme preference to localStorage
  * @param {ThemeMode} theme - The theme to save
  * @returns {Promise<void>}
  */
 async function saveThemePreference(theme) {
   try {
-    await chrome.storage.sync.set({ [THEME_STORAGE_KEY]: theme });
+    localStorage.setItem(THEME_STORAGE_KEY, theme);
   } catch (error) {
     console.error('Failed to save theme preference:', error);
   }

@@ -1,94 +1,87 @@
-# inNotion Chrome Extension
+# inNotion Web App
 
-A Chrome extension that provides a Notion-like interface in the Chrome side panel. Built with vanilla JavaScript and CSS.
+Une application web inspirée de Notion avec une interface propre et minimaliste. Construite avec JavaScript et CSS vanilla.
 
-## Features
+## Fonctionnalités
 
-- Opens in Chrome's side panel when the extension icon is clicked
-- Notion-inspired design with clean UI
-- Simple note-taking functionality
-- Page-based architecture for easy development
-- Theme management with light/dark mode support
+- Design inspiré de Notion avec une interface utilisateur épurée
+- Gestion de thème avec support des modes clair/sombre/système
+- Architecture basée sur des pages pour un développement facile
+- Stockage local des préférences utilisateur
 
-## Project Structure
+## Structure du projet
 
 ```
-├── manifest.json        # Extension configuration
-├── background.js        # Service worker for background events
-├── sidepanel.html       # Main HTML for the side panel
-├── sidepanel.js         # Main entry point for the side panel
-├── /shared/             # Shared utilities and functionality
-│   ├── router.js        # Simple page-based router
-│   ├── store.js         # State management
-│   ├── utils.js         # Utility functions
-│   ├── api.js           # API functions
-│   └── theme-manager.js # Theme management (light/dark mode)
-├── /styles/             # Global styles
-│   ├── variables.css    # CSS variables and theme
-│   ├── main.css         # Global styles
-│   ├── typography.css   # Typography styles
-│   ├── colors.css       # Color utilities
-│   └── animations.css   # Animation utilities
-├── /pages/              # Individual pages
-│   ├── /home/           # Home page
-│   │   ├── home.html    # Home page HTML
-│   │   ├── home.js      # Home page logic
-│   │   └── home.css     # Home page styles
-│   ├── /settings-list/  # Settings list page
-│   │   ├── settings-list.html
-│   │   ├── settings-list.js
-│   │   └── settings-list.css
-│   └── /new-setting/    # New setting page
-│       ├── new-setting.html
-│       ├── new-setting.js
-│       └── new-setting.css
-└── icon128.png          # Extension icon
+├── index.html          # Point d'entrée HTML principal
+├── index.js            # Point d'entrée JavaScript principal
+├── /shared/            # Utilitaires et fonctionnalités partagés
+│   ├── router.js       # Routeur simple basé sur les pages
+│   ├── store.js        # Gestion d'état avec localStorage
+│   ├── utils.js        # Fonctions utilitaires
+│   ├── api.js          # Fonctions API
+│   └── theme-manager.js # Gestion des thèmes (clair/sombre)
+├── /styles/            # Styles globaux
+│   ├── variables.css   # Variables CSS et thème
+│   ├── main.css        # Styles globaux
+│   ├── typography.css  # Styles typographiques
+│   ├── colors.css      # Utilitaires de couleur
+│   └── animations.css  # Utilitaires d'animation
+└── /pages/             # Pages individuelles
+    └── /home/          # Page d'accueil
+        ├── home.html   # HTML de la page d'accueil
+        ├── home.js     # Logique de la page d'accueil
+        └── home.css    # Styles de la page d'accueil
 ```
 
-## Development
+## Développement
 
 ### Installation
 
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable "Developer mode" in the top right corner
-3. Click "Load unpacked" and select the project folder
+1. Clonez ce dépôt
+2. Ouvrez le fichier `index.html` dans votre navigateur ou utilisez un serveur local
 
-### Making Changes
+### Serveur de développement local
 
-- The project uses a simple page-based architecture
-- Each page has its own folder with JS and CSS files
-- The router handles navigation between pages
-- Global styles are in the `/styles` directory
-- Shared functionality is in the `/shared` directory
+Vous pouvez utiliser n'importe quel serveur local simple pour développer cette application. Par exemple :
 
-### Adding a New Page
+- Avec Python : `python -m http.server`
+- Avec Node.js : `npx serve`
 
-1. Create a new folder in `/pages` (e.g., `/pages/settings/`)
-2. Create the page files (e.g., `settings.js` and `settings.css`)
-3. Register the page with the router in your JS file:
+### Ajout d'une nouvelle page
+
+1. Créez un nouveau dossier dans `/pages` (ex: `/pages/settings/`)
+2. Créez les fichiers de la page (ex: `settings.html`, `settings.js` et `settings.css`)
+3. Enregistrez la page auprès du routeur dans votre fichier JS :
 
 ```javascript
 import { registerPage } from '../../shared/router.js';
 
 function initSettingsPage(container, params) {
-  // Page initialization code
+  // Code d'initialisation de la page
 }
 
-// Register the page
+// Enregistrement de la page
 registerPage('settings', initSettingsPage);
 
 export default initSettingsPage;
 ```
 
-4. Navigate to the page using:
+4. Importez la page dans `index.js` :
+
+```javascript
+// Dans index.js
+import './pages/settings/settings.js';
+```
+
+5. Naviguez vers la page en utilisant :
 
 ```javascript
 import { navigateTo } from '../../shared/router.js';
 
-// Navigate to the settings page
+// Navigation vers la page des paramètres
 navigateTo('settings');
 ```
 
-## Data Storage
+## Stockage des données
 
-The extension uses Chrome's storage API to persist data. The `store.js` file provides a simple interface for managing state and saving to storage.
+L'application utilise localStorage pour persister les données. Le fichier `store.js` fournit une interface simple pour gérer l'état et sauvegarder dans le stockage local.

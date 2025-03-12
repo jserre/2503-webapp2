@@ -37,76 +37,76 @@ input::placeholder, textarea::placeholder {
 
 /* 2. Status colors */
 .status-red {
-  background-color: rgba(235, 87, 87, 0.1);
+  background-color: var(--notion-bg-red);
   color: var(--color-status-red);
 }
 
 .status-blue {
-  background-color: rgba(35, 131, 226, 0.1);
+  background-color: var(--notion-bg-blue);
   color: var(--color-status-blue);
 }
 
 .status-green {
-  background-color: rgba(15, 157, 88, 0.1);
+  background-color: var(--notion-bg-green);
   color: var(--color-status-green);
 }
 
 .status-yellow {
-  background-color: rgba(242, 201, 76, 0.1);
+  background-color: var(--notion-bg-yellow);
   color: var(--color-status-yellow);
 }
 
 .status-orange {
-  background-color: rgba(242, 154, 56, 0.1);
+  background-color: var(--notion-bg-orange);
   color: var(--color-status-orange);
 }
 
 .status-purple {
-  background-color: rgba(155, 81, 224, 0.1);
+  background-color: var(--notion-bg-purple);
   color: var(--color-status-purple);
 }
 
 .status-pink {
-  background-color: rgba(226, 73, 138, 0.1);
+  background-color: var(--notion-bg-pink);
   color: var(--color-status-pink);
 }
 
 .status-gray {
-  background-color: rgba(143, 143, 143, 0.1);
+  background-color: var(--notion-bg-gray);
   color: var(--color-status-gray);
 }
 
 /* 3. Select colors */
 .select-red {
-  background-color: rgba(235, 87, 87, 0.2);
+  background-color: var(--notion-bg-red);
 }
 
 .select-blue {
-  background-color: rgba(35, 131, 226, 0.2);
+  background-color: var(--notion-bg-blue);
 }
 
 .select-green {
-  background-color: rgba(15, 157, 88, 0.2);
+  background-color: var(--notion-bg-green);
 }
 
 .select-yellow {
-  background-color: rgba(242, 201, 76, 0.2);
+  background-color: var(--notion-bg-yellow);
 }
 
 .select-orange {
-  background-color: rgba(242, 154, 56, 0.2);
+  background-color: var(--notion-bg-orange);
 }
 
 .select-purple {
-  background-color: rgba(155, 81, 224, 0.2);
+  background-color: var(--notion-bg-purple);
 }
 
 .select-pink {
-  background-color: rgba(226, 73, 138, 0.2);
+  background-color: var(--notion-bg-pink);
 }
 
 .select-gray {
-  background-color: rgba(143, 143, 143, 0.2);
+  background-color: var(--notion-bg-gray);
 }
 
 /* 4. Badge styles */
@@ -199,15 +199,15 @@ input::placeholder, textarea::placeholder {
 
 /* 10. Animation colors */
 .success-animation {
-  background-color: rgba(15, 157, 88, 0.1);
+  background-color: var(--color-success-bg);
 }
 
 .error-animation {
-  background-color: rgba(235, 87, 87, 0.1);
+  background-color: var(--color-error-bg);
 }
 
 .warning-animation {
-  background-color: rgba(242, 154, 56, 0.1);
+  background-color: var(--color-warning-bg);
 }
 
 /* Note Delete Button */
@@ -216,5 +216,5 @@ input::placeholder, textarea::placeholder {
 }
 
 .note-delete-btn:hover {
-  background-color: rgba(235, 87, 87, 0.1);
+  background-color: var(--color-error-bg);
 }

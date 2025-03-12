@@ -1,7 +1,10 @@
 /* variables.css - Global CSS variables for consistent styling */
 
 :root {
-  /* Color Palette - Based on Notion's design system */
+
+  /* ===== LIGHT MODE COLORS ===== */
+  
+  /* UI Colors - Light Mode */
   --color-bg-default: #ffffff;
   --color-bg-secondary: #f7f6f3;
   --color-bg-tertiary: #eae8e3;
@@ -27,7 +30,19 @@
   --color-warning: #f29a38;
   --color-warning-bg: rgba(242, 154, 56, 0.1);
   
-  /* Status Colors */
+  /* Notion Text Colors - Light Mode */
+  --notion-text-default: #37352f;
+  --notion-text-gray: #9b9a97;
+  --notion-text-red: #e03e3e;
+  --notion-text-pink: #ad1a72;
+  --notion-text-purple: #6940a5;
+  --notion-text-blue: #0b6e99;
+  --notion-text-green: #0f7b6c;
+  --notion-text-yellow: #dfab01;
+  --notion-text-orange: #d9730d;
+  --notion-text-brown: #64473a;
+  
+  /* Status Colors - Common to both modes */
   --color-status-red: #eb5757;
   --color-status-blue: #2383e2;
   --color-status-green: #0f9d58;
@@ -36,6 +51,91 @@
   --color-status-purple: #9b51e0;
   --color-status-pink: #e2498a;
   --color-status-gray: #8f8f8f;
+
+  /* Notion Background Colors - Light Mode */
+  --notion-bg-default: #ffffff;
+  --notion-bg-gray: #ebeced;
+  --notion-bg-red: #fbe4e4;
+  --notion-bg-pink: #f4dfeb;
+  --notion-bg-purple: #eae4f2;
+  --notion-bg-blue: #ddebf1;
+  --notion-bg-green: #ddedea;
+  --notion-bg-yellow: #fbf3db;
+  --notion-bg-orange: #faebdd;
+  --notion-bg-brown: #e9e5e3;
+  
+  /* Notion UI Colors - Light Mode */
+  --notion-ui-main: #ffffff;
+  --notion-ui-sidebar: #f7f6f3;
+  --notion-ui-hover: #ffffff;
+  
+  /* ===== DARK MODE COLORS ===== */
+  /* These will be used when a dark mode toggle is implemented */
+  
+  /* UI Colors - Dark Mode */
+  --color-dark-bg-default: #2f3438;
+  --color-dark-bg-secondary: #373c3f;
+  --color-dark-bg-tertiary: #3f4448;
+  --color-dark-bg-hover: #454b4e;
+  --color-dark-bg-selected: #505659;
+  
+  --color-dark-text-default: #ffffff;
+  --color-dark-text-secondary: #d3d3d3;
+  --color-dark-text-tertiary: #a6a6a6;
+  --color-dark-text-placeholder: #7a7a7a;
+  
+  --color-dark-border-default: #4d5154;
+  --color-dark-border-focus: #6c7073;
+  
+  --color-dark-interactive-default: #529cca;
+  --color-dark-interactive-hover: #7ab8dc;
+  --color-dark-interactive-shadow: rgba(82, 156, 202, 0.15);
+  
+  --color-dark-error: #ff7369;
+  --color-dark-error-bg: rgba(255, 115, 105, 0.1);
+  --color-dark-success: #4dab9a;
+  --color-dark-success-bg: rgba(77, 171, 154, 0.1);
+  --color-dark-warning: #ffa344;
+  --color-dark-warning-bg: rgba(255, 163, 68, 0.1);
+  
+  /* Notion Text Colors - Dark Mode */
+  --notion-dark-text-default: #ffffff;
+  --notion-dark-text-gray: #979a9b;
+  --notion-dark-text-red: #ff7369;
+  --notion-dark-text-pink: #e255a1;
+  --notion-dark-text-purple: #9a6dd7;
+  --notion-dark-text-blue: #529cca;
+  --notion-dark-text-green: #4dab9a;
+  --notion-dark-text-yellow: #ffdc49;
+  --notion-dark-text-orange: #ffa344;
+  --notion-dark-text-brown: #937264;
+  
+  /* Status Colors - Common to both modes */
+  --color-status-red: #eb5757;
+  --color-status-blue: #2383e2;
+  --color-status-green: #0f9d58;
+  --color-status-yellow: #f2c94c;
+  --color-status-orange: #f29a38;
+  --color-status-purple: #9b51e0;
+  --color-status-pink: #e2498a;
+  --color-status-gray: #8f8f8f;
+
+  /* Notion Background Colors - Dark Mode */
+  --notion-dark-bg-default: #2f3438;
+  --notion-dark-bg-gray: #454b4e;
+  --notion-dark-bg-red: #594141;
+  --notion-dark-bg-pink: #533b4c;
+  --notion-dark-bg-purple: #443f57;
+  --notion-dark-bg-blue: #364954;
+  --notion-dark-bg-green: #354c4b;
+  --notion-dark-bg-yellow: #59563b;
+  --notion-dark-bg-orange: #594a3a;
+  --notion-dark-bg-brown: #434040;
+  
+  /* Notion UI Colors - Dark Mode */
+  --notion-dark-ui-main: #2f3438;
+  --notion-dark-ui-sidebar: #373c3f;
+  --notion-dark-ui-hover: #3f4448;
   
   /* Typography */
   --font-family-default: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji";
